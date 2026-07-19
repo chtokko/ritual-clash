@@ -42,7 +42,7 @@
     "preflight:ritual": "node scripts/ritual-preflight.mjs"
   },
   "dependencies": {
-    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-slot": "^1.3.0",
     "@radix-ui/react-tooltip": "^1.2.7",
     "@reown/appkit": "^1.8.19",
     "@reown/appkit-adapter-wagmi": "^1.8.19",
