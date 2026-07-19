@@ -15,10 +15,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Archivo Black", "sans-serif"],
-        display: ["Archivo Black", "sans-serif"],
-        body: ["Barlow", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        heading: ["Inter Tight", "sans-serif"],
+        display: ["Inter Tight", "sans-serif"],
+        body: ["Inter Tight", "sans-serif"],
+        mono: ["IBM Plex Mono", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",

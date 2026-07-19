@@ -10,7 +10,6 @@ import {
   LoaderCircle,
   Plus,
   ShieldCheck,
-  Sparkles,
   Swords,
   Trophy,
   UserRound,
@@ -19,7 +18,6 @@ import {
 import { toast } from "sonner";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
-import { GlassButton } from "@/components/ui/glass-button";
 import { Input } from "@/components/ui/input";
 import { useArena } from "@/context/useArena";
 import {
@@ -42,7 +40,7 @@ import {
 type AsyncState = "IDLE" | "CONFIRMING" | "SUBMITTED" | "COMMITTED" | "EXECUTING" | "SETTLING" | "COMPLETED" | "ERROR";
 type RitualExecutorService = { isValid: boolean; node: { teeAddress: Address } };
 
-const selectClass = "h-12 w-full rounded-xl border border-white/10 bg-black/25 px-4 text-sm text-slate-200 outline-none transition-all focus:border-white/35 focus:ring-4 focus:ring-white/[0.06]";
+const selectClass = "h-12 w-full rounded-[2px] border border-white/20 bg-black/60 px-4 font-mono text-sm text-white outline-none transition-colors focus:border-white/60";
 
 export default function RitualArena() {
   const { walletAddress, openWalletModal, ensureArenaNetwork, coreContractConfigured } = useArena();
@@ -215,24 +213,24 @@ export default function RitualArena() {
     <Header />
     <main id="main" className="app-container pb-20 pt-28 sm:pt-32">
       <div className="grid-bg pointer-events-none absolute inset-x-0 top-0 h-[720px]"/>
-      <section className="relative mb-10 grid gap-6 lg:grid-cols-[1.4fr_0.6fr] lg:items-end">
+      <section className="relative mb-10 grid gap-6 border-b border-white/[0.14] pb-10 lg:grid-cols-[1.4fr_0.6fr] lg:items-end">
         <div className="py-5">
-          <p className="eyebrow"><span className="status-dot"/> Ritual Chain · TEE verified</p>
-          <h1 className="text-balance mt-5 font-heading text-4xl font-black leading-[0.98] tracking-[-0.04em] text-white sm:text-5xl md:text-6xl">
-            THE ON-CHAIN<br/><span className="text-white/35">AI BATTLEGROUND</span>
+          <p className="eyebrow">Console / Ritual Chain 1979</p>
+          <h1 className="text-balance mt-6 font-heading text-4xl font-medium leading-[0.92] tracking-[-0.055em] text-white sm:text-5xl md:text-6xl">
+            MATCH<br/><span className="text-white/30">CONSOLE.</span>
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-7 text-slate-500 sm:text-lg">
-            Open a challenge, lock both entries, and let Ritual's verified LLM settle the result and wager.
+            Create the room, commit both entries, and request one verifiable on-chain judgment.
           </p>
         </div>
 
         <div className="surface p-5">
           <div className="flex items-start justify-between">
             <div><p className="text-[10px] uppercase tracking-[0.22em] text-slate-600">AI execution balance</p><p className="mt-2 font-mono text-2xl text-white">{formatEther(walletDeposit)} <span className="text-sm text-slate-500">RITUAL</span></p></div>
-            <div className="grid h-10 w-10 place-items-center rounded-xl border border-white/15 bg-white/[0.05]"><WalletCards className="h-4.5 w-4.5 text-white"/></div>
+            <div className="grid h-10 w-10 place-items-center border border-white/20 bg-white/[0.04]"><WalletCards className="h-4.5 w-4.5 text-white"/></div>
           </div>
           <div className="mt-4 flex items-center justify-between text-xs"><span className="text-slate-600">Required escrow</span><span className="text-white/65">{hasJudgeDeposit ? "Ready" : "0.31 RITUAL"}</span></div>
-          <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/[0.05]"><div className={"h-full rounded-full bg-white transition-all " + (hasJudgeDeposit ? "w-full" : "w-1/4")}/></div>
+          <div className="mt-2 h-px overflow-hidden bg-white/[0.08]"><div className={"h-full bg-white transition-all " + (hasJudgeDeposit ? "w-full" : "w-1/4")}/></div>
           {!hasJudgeDeposit && connected && <Button variant="wallet" className="mt-4 w-full" onClick={depositForAI}>Fund with 0.5 RITUAL</Button>}
           {senderLockQuery.data && <p className="mt-3 flex items-center gap-2 text-xs text-white/60"><LoaderCircle className="h-3.5 w-3.5 animate-spin"/> AI settlement in progress</p>}
         </div>
@@ -242,16 +240,16 @@ export default function RitualArena() {
 
       {!connected && <section className="surface mb-10 overflow-hidden p-8 sm:p-10">
         <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
-          <div><p className="eyebrow">Wallet required</p><h2 className="mt-4 font-heading text-2xl text-white sm:text-3xl">Connect to enter the protocol</h2><p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500">Your wallet is your identity, profile, match signer, and destination for all claimable rewards.</p></div>
+          <div><p className="eyebrow">Wallet required</p><h2 className="mt-4 font-heading text-2xl font-medium text-white sm:text-3xl">Sign into the match console</h2><p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500">Your wallet is the player identity, transaction signer, and destination for claimable rewards.</p></div>
           <Button variant="wallet" size="lg" onClick={openWalletModal}>Connect wallet <ArrowRight/></Button>
         </div>
       </section>}
 
       {connected && coreContractConfigured && !hasProfile && <section className="surface mb-10 p-6 sm:p-8">
         <div className="flex items-start gap-4">
-          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/15 bg-white/[0.05]"><UserRound className="h-5 w-5 text-white"/></div>
+          <div className="grid h-11 w-11 shrink-0 place-items-center border border-white/20 bg-white/[0.04]"><UserRound className="h-5 w-5 text-white"/></div>
           <div className="flex-1"><h2 className="font-heading text-2xl text-white">Create your on-chain identity</h2><p className="mt-2 text-sm text-slate-500">Choose a public handle for the ladder and every future verdict.</p>
-            <div className="mt-5 flex max-w-2xl flex-col gap-3 sm:flex-row"><Input value={handle} maxLength={24} onChange={(event) => setHandle(event.target.value)} placeholder="Handle · 3–24 characters"/><GlassButton disabled={writePending || handle.trim().length < 3} onClick={createProfile}>Create profile</GlassButton></div>
+            <div className="mt-5 flex max-w-2xl flex-col gap-3 sm:flex-row"><Input value={handle} maxLength={24} onChange={(event) => setHandle(event.target.value)} placeholder="Handle · 3–24 characters"/><Button variant="wallet" disabled={writePending || handle.trim().length < 3} onClick={createProfile}>Create profile</Button></div>
           </div>
         </div>
       </section>}
@@ -281,7 +279,7 @@ export default function RitualArena() {
       <section>
         <div className="mb-6 flex items-end justify-between">
           <div><p className="eyebrow">Live protocol</p><h2 className="mt-4 font-heading text-3xl text-white">Challenge rooms</h2></div>
-          <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-slate-500">{rooms.length} recent</span>
+          <span className="border border-white/[0.12] px-3 py-1.5 font-mono text-[9px] uppercase tracking-wider text-slate-500">{rooms.length} recent</span>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-2">
@@ -304,12 +302,12 @@ export default function RitualArena() {
               {canSubmit && <div className="mt-5 flex flex-col gap-2 sm:flex-row"><Input value={entries[room.id.toString()] || ""} onChange={(event) => setEntries((all) => ({ ...all, [room.id.toString()]: event.target.value }))} placeholder="Your final on-chain entry"/><Button variant="wallet" onClick={() => submitEntry(room)}>Lock entry</Button></div>}
               {room.status === 2 && <Button variant="outline" className="mt-5 w-full border-white/20 text-white hover:border-white/40 hover:bg-white/[0.07]" disabled={Boolean(senderLockQuery.data)} onClick={() => resolveRoom(room)}><BrainCircuit/> Request verified verdict</Button>}
 
-              {activeRoom === room.id && asyncState !== "IDLE" && <div role="status" className="glass-panel mt-5 rounded-xl p-4 text-sm">
+              {activeRoom === room.id && asyncState !== "IDLE" && <div role="status" className="glass-panel mt-5 p-4 text-sm">
                 <div className="flex items-center gap-2 text-white/70">{!(["COMPLETED", "ERROR"].includes(asyncState)) && <LoaderCircle className="h-4 w-4 animate-spin"/>}{asyncState === "COMPLETED" && <ShieldCheck className="h-4 w-4 text-white"/>}<span className="font-semibold">{asyncState}</span></div>
                 {resolveHash && <p className="mt-2 break-all font-mono text-[9px] leading-4 text-slate-600">{resolveHash}</p>}
               </div>}
 
-              {room.status === 3 && <div className="glass-panel mt-5 rounded-xl p-4">
+              {room.status === 3 && <div className="glass-panel mt-5 p-4">
                 <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-white/65"><CheckCircle2 className="h-3.5 w-3.5"/> TEE verified verdict</p>
                 <p className="mt-3 font-mono text-sm text-slate-200">{room.verdict.trim()} · Winner {room.winner === ZERO_ADDRESS ? "TIE" : formatAddress(room.winner)}</p>
               </div>}
@@ -318,7 +316,7 @@ export default function RitualArena() {
           })}
 
           {!rooms.length && <div className="surface-soft grid min-h-64 place-items-center p-10 text-center lg:col-span-2">
-            <div><div className="mx-auto grid h-12 w-12 place-items-center rounded-xl border border-white/[0.08] bg-white/[0.03]"><Swords className="h-5 w-5 text-slate-600"/></div><h3 className="mt-5 font-heading text-lg text-slate-300">No rooms yet</h3><p className="mt-2 text-sm text-slate-600">Create the first on-chain challenge when your profile is ready.</p></div>
+            <div><div className="mx-auto grid h-12 w-12 place-items-center border border-white/[0.12] bg-white/[0.03]"><Swords className="h-5 w-5 text-slate-600"/></div><h3 className="mt-5 font-heading text-lg text-slate-300">No rooms yet</h3><p className="mt-2 text-sm text-slate-600">Create the first on-chain challenge when your profile is ready.</p></div>
           </div>}
         </div>
       </section>
@@ -332,17 +330,17 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 
 function StatCard({ icon: Icon, label, value, detail, accent, action }: { icon: typeof Trophy; label: string; value: string; detail: string; accent?: "green" | "pink"; action?: React.ReactNode }) {
   const color = accent === "pink" ? "border-white/20 bg-white/[0.07] text-white" : "border-white/15 bg-white/[0.05] text-white";
-  return <div className="surface p-5"><div className="flex items-start justify-between"><div className={`grid h-10 w-10 place-items-center rounded-xl border ${color}`}><Icon className="h-4.5 w-4.5"/></div>{action}</div><p className="mt-5 text-[10px] uppercase tracking-[0.2em] text-slate-600">{label}</p><p className="mt-2 truncate font-heading text-lg text-white">{value}</p><p className="mt-1 font-mono text-[10px] text-slate-600">{detail}</p></div>;
+  return <div className="surface p-5"><div className="flex items-start justify-between"><div className={`grid h-10 w-10 place-items-center border ${color}`}><Icon className="h-4.5 w-4.5"/></div>{action}</div><p className="mt-5 text-[10px] uppercase tracking-[0.2em] text-slate-600">{label}</p><p className="mt-2 truncate font-heading text-lg text-white">{value}</p><p className="mt-1 font-mono text-[10px] text-slate-600">{detail}</p></div>;
 }
 
 function Seat({ label, address, locked, color }: { label: string; address: string; locked: boolean; color: "green" | "pink" }) {
   const accent = color === "green" ? "text-white/65" : "text-white";
-  return <div className="glass-panel rounded-xl p-3.5"><div className="flex items-center justify-between"><span className={`text-[9px] font-semibold tracking-widest ${accent}`}>{label}</span><span className={`h-1.5 w-1.5 rounded-full ${locked ? "bg-white" : "bg-slate-700"}`}/></div><p className="mt-3 truncate font-mono text-xs text-slate-300">{address}</p><p className="mt-2 text-[10px] text-slate-600">{locked ? "Entry locked ✓" : "Awaiting entry"}</p></div>;
+  return <div className="glass-panel p-3.5"><div className="flex items-center justify-between"><span className={`text-[9px] font-semibold tracking-widest ${accent}`}>{label}</span><span className={`h-1.5 w-1.5 ${locked ? "bg-white" : "bg-slate-700"}`}/></div><p className="mt-3 truncate font-mono text-xs text-slate-300">{address}</p><p className="mt-2 text-[10px] text-slate-600">{locked ? "Entry locked ✓" : "Awaiting entry"}</p></div>;
 }
 
 function StatusPill({ status }: { status: number }) {
   const colors = status === 3 ? "border-white/25 bg-white/[0.09] text-white" : status === 2 ? "border-white/20 bg-white/[0.06] text-white/75" : "border-white/15 bg-white/[0.035] text-white/50";
-  return <span className={`shrink-0 rounded-full border px-2.5 py-1 text-[9px] font-semibold uppercase tracking-wider ${colors}`}>{STATUS_LABELS[status]}</span>;
+  return <span className={`shrink-0 border px-2.5 py-1 font-mono text-[8px] font-medium uppercase tracking-wider ${colors}`}>{STATUS_LABELS[status]}</span>;
 }
 
 function formatAddress(address: string) {

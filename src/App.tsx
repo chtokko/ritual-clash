@@ -3,7 +3,6 @@ import { WagmiProvider } from "wagmi";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { AsciiArt } from "@/components/ui/m-ascii";
 import { ArenaProvider } from "@/context/ArenaProvider";
 import { wagmiAdapter } from "@/lib/appkit";
 import Landing from "@/pages/Landing";
@@ -19,11 +18,10 @@ export default function App() {
         <ArenaProvider>
           <Sonner/>
           <BrowserRouter>
-            <div className="relative min-h-screen bg-black">
-              <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-black" aria-hidden="true">
-                <AsciiArt className="h-full w-full scale-[1.02] grayscale opacity-35 contrast-125"/>
-                <div className="absolute inset-0 bg-black/65"/>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,transparent_0%,rgba(0,0,0,0.34)_45%,rgba(0,0,0,0.9)_100%)]"/>
+            <div className="relative min-h-screen bg-[#080808]">
+              <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[#080808]" aria-hidden="true">
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:80px_100%]"/>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_10%,rgba(255,255,255,0.045),transparent_26rem)]"/>
               </div>
               <div className="relative z-10 min-h-screen">
                 <a href="#main" className="sr-only focus:not-sr-only">Skip to content</a>
