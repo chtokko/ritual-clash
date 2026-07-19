@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 import { Button } from "@/components/ui/button";
-import { useArena } from "@/context/ArenaContext";
+import { useArena } from "@/context/useArena";
 
 const features = [
   { icon: BrainCircuit, title: "Verified AI judgment", text: "A Ritual TEE executor judges the locked entries and returns a result the contract can verify." },

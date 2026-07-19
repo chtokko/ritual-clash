@@ -45,6 +45,7 @@ dist-ssr
 .vercel
 .env*.local
 
-# Local agent and Ritual build checkpoints
-/.codex/
-/.ritual-build/
+# Local workspace metadata and build checkpoints
+/.*/
+!/.github/
+!/.github/**

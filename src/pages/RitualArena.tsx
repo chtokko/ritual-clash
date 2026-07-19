@@ -21,7 +21,7 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { GlassButton } from "@/components/ui/glass-button";
 import { Input } from "@/components/ui/input";
-import { useArena } from "@/context/ArenaContext";
+import { useArena } from "@/context/useArena";
 import {
   arenaAbi,
   ASYNC_JOB_TRACKER,

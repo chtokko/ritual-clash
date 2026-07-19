@@ -1,26 +1,10 @@
-import { createContext, useContext, useMemo, type ReactNode } from "react";
+import { useMemo, type ReactNode } from "react";
 import { useAppKit, useAppKitAccount, useAppKitNetwork, useAppKitProvider, useDisconnect } from "@reown/appkit/react";
 import type { Provider } from "@reown/appkit/react";
 import { getAddress, type Address } from "viem";
 import { arenaEnv } from "@/lib/env";
 import type { BrowserEthereumProvider } from "@/lib/ethereum";
-
-type NetworkStatus = "unknown" | "ready" | "wrong-network";
-
-interface ArenaContextValue {
-  walletAddress: Address | null;
-  provider: BrowserEthereumProvider | null;
-  walletReady: boolean;
-  openWalletModal: () => Promise<void>;
-  disconnectWallet: () => Promise<void>;
-  ensureArenaNetwork: () => Promise<void>;
-  walletChainId: string | null;
-  walletArenaStatus: NetworkStatus;
-  coreContractAddress: string;
-  coreContractConfigured: boolean;
-}
-
-const ArenaContext = createContext<ArenaContextValue | null>(null);
+import { ArenaContext, type NetworkStatus } from "@/context/ArenaContext";
 
 export function ArenaProvider({ children }: { children: ReactNode }) {
   const { open } = useAppKit();
@@ -67,10 +51,4 @@ export function ArenaProvider({ children }: { children: ReactNode }) {
     coreContractAddress: arenaEnv.ritualClashContractAddress,
     coreContractConfigured: Boolean(arenaEnv.ritualClashContractAddress),
   }}>{children}</ArenaContext.Provider>;
-}
-
-export function useArena() {
-  const context = useContext(ArenaContext);
-  if (!context) throw new Error("useArena must be used within ArenaProvider");
-  return context;
 }

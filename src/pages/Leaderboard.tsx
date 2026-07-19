@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ArrowUpRight, Crown, Medal, ShieldCheck, Trophy, UsersRound } from "lucide-react";
 import Header from "@/components/Header";
 import { arenaAbi, ritualPublicClient, RITUAL_CLASH_CONTRACT_ADDRESS, type RitualProfile } from "@/lib/ritual";
-import { useArena } from "@/context/ArenaContext";
+import { useArena } from "@/context/useArena";
 
 export default function Leaderboard() {
   const { coreContractConfigured } = useArena();

@@ -1,7 +1,7 @@
 import { BrainCircuit, ExternalLink, LogOut, Trophy } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useArena } from "@/context/ArenaContext";
+import { useArena } from "@/context/useArena";
 import { RITUAL_EXPLORER } from "@/lib/ritual";
 import { cn } from "@/lib/utils";
 

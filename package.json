@@ -2,7 +2,25 @@
   "name": "ritual-clash",
   "private": true,
   "version": "1.0.0",
+  "description": "On-chain competitive AI games powered by Ritual Chain and verified TEE execution.",
   "license": "MIT",
+  "author": "chtokko",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chtokko/ritual-clash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chtokko/ritual-clash/issues"
+  },
+  "homepage": "https://github.com/chtokko/ritual-clash#readme",
+  "keywords": [
+    "ritual",
+    "onchain-games",
+    "solidity",
+    "tee",
+    "react",
+    "typescript"
+  ],
   "type": "module",
   "packageManager": "pnpm@10.29.2",
   "engines": {

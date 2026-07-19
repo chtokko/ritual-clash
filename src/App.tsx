@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AsciiArt } from "@/components/ui/m-ascii";
-import { ArenaProvider } from "@/context/ArenaContext";
+import { ArenaProvider } from "@/context/ArenaProvider";
 import { wagmiAdapter } from "@/lib/appkit";
 import Landing from "@/pages/Landing";
 import Leaderboard from "@/pages/Leaderboard";
