@@ -1,9 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <style>
-    .mark { stroke: #080808; }
-    @media (prefers-color-scheme: dark) { .mark { stroke: #EEECE4; } }
-  </style>
-  <g class="mark" stroke-linecap="square" stroke-linejoin="miter">
+  <g stroke="#EEECE4" stroke-linecap="square" stroke-linejoin="miter">
     <path d="M29 9A23 23 0 1 0 29 55" stroke-width="10"/>
     <path d="M35 9A23 23 0 0 1 55 27" stroke-width="10"/>
     <path d="M55 37A23 23 0 0 1 35 55" stroke-width="10"/>

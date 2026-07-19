@@ -22,7 +22,7 @@ export default function Header({ centered: _centered = false }: { centered?: boo
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.14] bg-[#080808]/95 backdrop-blur-md">
       <nav className="app-container flex h-16 items-center justify-between" aria-label="Primary navigation">
         <Link to="/" className="flex items-center gap-3" aria-label="Ritual Clash home">
-          <span className="grid h-7 w-7 place-items-center border border-white/60 font-mono text-[9px] font-semibold text-white">RC</span>
+          <img src="/ritual-clash-mark.svg" alt="" aria-hidden="true" className="h-8 w-8 shrink-0"/>
           <span className="flex items-baseline gap-2">
             <span className="font-heading text-sm font-semibold uppercase tracking-[0.12em] text-white">Ritual Clash</span>
             <span className="hidden font-mono text-[8px] uppercase tracking-[0.15em] text-white/25 sm:inline">Protocol 01</span>
